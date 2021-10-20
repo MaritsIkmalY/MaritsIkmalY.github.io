@@ -1,0 +1,1135 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@700&family=Montserrat:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: yellow;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p {
+    color: black;
+    text-align: left;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+
+.cta {
+    display: inline-block;
+    padding: 10px 25px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid rgb(54, 32, 102);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+.cta:hover {
+    color: white;
+    background-color: rgb(59, 50, 189);
+}
+
+.brand h1 {
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+.brand h1 span {
+    color: blue;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Header */
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+
+#header .header {
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+    transition: .5s ease background-color;
+}
+
+#header .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    padding: 0 10px;
+}
+
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: rgb(31, 30, 30);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    z-index: 1;
+    overflow-x: hidden;
+    flex-direction: column;
+    transition: .5s ease left;
+}
+
+#header .nav-list ul.active {
+    left: 30%;
+}
+
+#header .nav-list ul a {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: .01rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    display: block;
+}
+
+#header .nav-list ul a::after {
+    position: absolute;
+    content: attr(data-after);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 13rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+
+}
+
+#header .nav-list ul li:hover a {
+    color: rgb(59, 50, 189);
+}
+
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: -5px;
+}
+
+#header .hamburger::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+    top: 8px;
+}
+
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+
+
+/* End Header */
+
+/* Hero Section */
+#hero {
+    background-image: url(Gambar/tech.jpg);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#hero.hero {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(28, 28, 29);
+    opacity: .7;
+    z-index: -1;
+}
+
+#hero .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    justify-content: flex-start;
+}
+
+.name {
+    width: 360px;
+}
+
+#hero h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+}
+
+
+#hero .name p {
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    animation: toRight 5s ease;
+    animation-delay: 1s;
+}
+
+#hero h1:nth-child(1) {
+    animation-delay: 2s;
+}
+
+#hero h1:nth-child(2) {
+    animation-delay: 3s;
+}
+
+#hero h1:nth-child(3) {
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 4s;
+}
+
+#hero h1 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(59, 50, 189);
+    animation: text_reveal_box 1s ease;
+    animation-delay: .3s;
+}
+
+#hero h1:nth-child(1) span {
+    animation-delay: 1.5s;
+}
+
+#hero h1:nth-child(2) span {
+    animation-delay: 2.5s;
+}
+
+#hero h1:nth-child(3) span {
+    animation-delay: 3.5s;
+}
+
+.image {
+    margin-left: 50vw;
+    padding: 0 20px;
+}
+
+.image img {
+    border-radius: 50%;
+    height: 40vh;
+    width: 18vw;
+    animation: toLeft 5s;
+    animation-delay: 1s;
+}
+
+.kata {
+    padding-bottom: 220px;
+}
+
+.kata p {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    animation: opacity 5s;
+    animation-delay: 1s;
+}
+
+
+#hero .cta {
+    display: inline-block;
+    padding: 10px 25px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid rgb(59, 50, 189);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+#hero .cta:hover {
+    color: white;
+    background-color: rgb(59, 50, 189);
+}
+
+/*End Hero Section */
+
+/* Education Section */
+
+
+#education .education {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+
+#education .section-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+
+
+#education .education-top p {
+    color: black;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    width: 300px;
+    max-width: 0 auto;
+}
+
+#education .education-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#education .education-item h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+#education .education-bottom p {
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+
+}
+
+#education .education-item {
+    flex-basis: 80%;
+    height: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-size: cover;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: .3s ease transform;
+}
+
+#education .education-item:nth-child(1) {
+    background-image: url(Gambar/PENS2.jpg);
+
+}
+
+#education .education-item:nth-child(2) {
+    background-image: url(Gambar/Smansa2.png);
+}
+
+#education .education-item:nth-child(3) {
+    background-image: url(Gambar/spensa2.jpg);
+}
+
+#education .education-item:nth-child(4) {
+    background-image: url(Gambar/gukar.jpg);
+}
+
+#education .education-item ::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-image: linear-gradient(60deg, #29323c 0%, rgb(54, 32, 102) 100%);
+    opacity: .4;
+    z-index: -1;
+}
+
+#education .education-item:hover {
+    transform: scale(1.1);
+}
+
+
+#education .education-bottom .icon {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#education .education-bottom .icon img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* End Education Section */
+
+/* Project Section */
+
+#project .project {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#project .project-header h1 {
+    margin-bottom: 50px;
+}
+
+#project .all-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#project .project-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#project .project-info {
+    padding: 30px;
+    flex-basis: 50%;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #29323c 0%, rgb(54, 32, 102));
+}
+
+#project .project-info h1 {
+    font-size: 4rem;
+    font-weight: 2500px;
+    text-transform: uppercase;
+}
+
+#project .project-info h2 {
+    color: cornsilk;
+    font-size: 1.5rem;
+    font-weight: 5000px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+#project .project-info p {
+    color: white;
+}
+
+#project .project-img {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+#project .project-img::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #29323c 0%, rgb(54, 32, 102) 100%);
+    opacity: .7;
+}
+
+#project .project-img img {
+    transition: .3s ease transform;
+}
+
+#project .project-item:hover .project-img img {
+    transform: scale(1.1);
+}
+
+/* End Project Section */
+
+/* About Section */
+#tentang .tentang {
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+#tentang .col-left {
+    width: 250px;
+    height: 360px;
+}
+
+#tentang .col-right {
+    width: 100%;
+}
+
+#tentang .col-right h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    margin-bottom: 10px;
+}
+
+#tentang .col-right p {
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+#tentang .col-right .cta {
+    color: black;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+
+#tentang .col-left .tentang-img {
+    position: relative;
+    border: 10px solid white;
+    height: 100%;
+    width: 100%;
+}
+
+#tentang .col-left .tentang-img img {
+    transition: .3s ease transform;
+}
+
+#tentang .col-left .tentang-img img:hover {
+    transform: scale(1.1);
+}
+
+#tentang .col-left .tentang-img::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 19px;
+    height: 98%;
+    width: 98%;
+    border: 7px solid rgb(54, 32, 102);
+    z-index: -1;
+}
+
+/* End About Section */
+
+/* Contact Section */
+#kontak .kontak {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#kontak .kontak-items {
+    width: 360px;
+}
+
+#kontak .kontak-item {
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 0 #0000002c;
+    flex-direction: column;
+    transition: .3s ease box-shadow;
+
+
+}
+
+#kontak .kontak-item:hover {
+    box-shadow: 0px 0px 30px 0 #0000002c;
+
+}
+
+#kontak .icon {
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#kontak .kontak-info h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#kontak .kontak-info h2 {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+
+#kontak .kontak-item .icon img {
+    filter: grayscale(1);
+    transition: .3s ease filter;
+}
+
+#kontak .kontak-item .icon img:hover {
+    filter: grayscale(0);
+}
+
+/* End Contact Section */
+
+/* Footer */
+#footer {
+    background-image: linear-gradient(60deg, #29323c 0%, rgb(54, 32, 102) 100%);
+
+}
+
+#footer .footer {
+    min-height: 200px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+#footer h2 {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+}
+
+#footer .social-icon {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#footer .social-item {
+    height: 30px;
+    width: 30px;
+    margin: 0 5px;
+}
+
+#footer .social-item img {
+    filter: grayscale(1);
+    transition: .3s ease filter;
+}
+
+#footer .social-item img:hover {
+    filter: grayscale(0);
+}
+
+#footer p {
+    color: white;
+    font-size: 1rem;
+}
+
+
+
+/* Footer */
+
+/* Keyframes */
+@keyframes hamburger_puls {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes text_reveal_box {
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes text_reveal {
+    100% {
+        color: white;
+    }
+}
+
+@keyframes text_reveal_name {
+    100% {
+        color: rgb(59, 50, 189);
+        font-weight: 500px;
+    }
+}
+
+@keyframes toRight {
+    100% {
+        transform: translateX(0);
+    }
+
+    0% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes toLeft {
+    100% {
+        transform: translateX(0);
+    }
+
+    0% {
+        transform: translateX(100%);
+    }
+
+}
+
+@keyframes opacity {
+    to {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    from {
+        color: rgba(255, 255, 255, 0);
+    }
+}
+
+/* End Keyframes */
+
+/* Responsive */
+@media (max-width: 670px) {
+    .container {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image {
+        margin-left: 0;
+    }
+
+    .image img {
+        height: 300px;
+        width: 250px;
+    }
+
+    .name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 2rem;
+    }
+
+    .kata p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    #education .education-item {
+        height: 50%;
+        width: 50%;
+        margin: 5px 2.5%;
+    }
+
+    #education .education-item h2 {
+        text-align: left;
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    #education .education-item p {
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-bottom: -25px;
+    }
+
+    #education .education-bottom .icon {
+        height: 40px;
+        width: 40px;
+        margin-bottom: 20px;
+        margin-top: -20px;
+    }
+
+
+
+}
+
+
+
+/* Media Query for Tablet */
+@media (min-width:768px) {
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+
+    h1 .section-title {
+        font-size: 6rem;
+    }
+
+    /* Hero */
+    #hero h1 {
+        font-size: 7rem;
+    }
+
+    /* End Hero */
+
+    /* Education section  */
+    #education .education-bottom .education-item {
+        flex-basis: 45%;
+        margin: 2.5%;
+    }
+
+    #hero .image {
+        margin-left: 25vw;
+    }
+
+    #hero p {
+        font-size: 2rem;
+    }
+
+    #education .education-bottom .icon {
+        height: 40px;
+        width: 40px;
+        margin-bottom: 40px;
+        margin-top: -10px;
+    }
+
+    #education .education-item p {
+        text-align: left;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        margin-bottom: -20px;
+    }
+
+    #education .education-item h2 {
+        text-align: left;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+
+    /* End Education section  */
+
+    /* Project Section */
+    #project .project-item {
+        flex-direction: row;
+    }
+
+    #project .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    #project .project-item {
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #project .all-project .project-info {
+        height: 100%;
+        padding-left: 40px;
+    }
+
+    #project .all-project .project-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* End Project Section */
+
+    /* Tentang Section */
+    #tentang .tentang {
+        flex-direction: row;
+    }
+
+    #tentang .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+
+    #tentang .tentang .col-left .tentang-img::after {
+        left: -45px;
+        top: 34px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid rgb(54, 32, 102);
+    }
+
+
+
+    #tentang .col-right p {
+        text-align: left;
+        padding: 30px;
+    }
+
+    #tentang .col-right h1 {
+        text-align: left;
+        padding-left: 30px;
+        font-size: 3.5rem;
+        margin-bottom: -10px;
+    }
+
+    #tentang .col-right h2 {
+        text-align: left;
+        padding: 30px;
+        font-size: 3rem;
+        font-weight: 500;
+    }
+
+    #tentang .col-right .cta {
+        display: block;
+    }
+
+
+    /* Tentang Section */
+
+    /* Contact Section */
+    #kontak .kontak {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+
+    #kontak .kontak-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+
+    #kontak .kontak-item {
+        width: 30%;
+        margin: 0;
+        flex-direction: row;
+    }
+
+    #kontak .kontak-item .icon {
+        height: 70px;
+        width: 70px;
+    }
+
+    #kontak .kontak-item .icon img {
+        object-fit: contain;
+    }
+
+    #kontak .kontak-item .kontak-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    /* Contact Section */
+
+}
+
+/* Media Query for Tablet */
+
+/* Media Query for Desktop */
+
+
+@media (min-width:1200px) {
+
+    /* Header */
+    #header .hamburger {
+        display: none;
+    }
+
+    #header .nav-list ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    #header .nav-list ul li {
+        display: inline-block;
+    }
+
+    #header .nav-list ul a::after {
+        display: none;
+    }
+
+    #header .nav-list ul a {
+        font-size: 1.5rem;
+        letter-spacing: .05rem;
+        padding: 0 20px;
+    }
+
+    /* End Header */
+    #hero .hero {
+        max-width: 1300px;
+    }
+
+    #education .education-bottom .education-item {
+        flex-basis: 22%;
+        margin: .5%;
+        width: 1350px;
+    }
+
+    #kontak .kontak-item .kontak-info {
+        text-align: center;
+    }
+
+    #tentang .col-right p {
+        font-size: 2rem;
+    }
+}
+
+/* End Media Query for Desktop */
+/* End Responsive */
